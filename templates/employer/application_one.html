@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<br><br>
+	<div class="row">
+		
+
+		<div class="row">
+			<div class="col-lg-offset-1 col-lg-10 box-shad">
+				<br>
+				<h2 style="color:#9932CC"><b>Employee Application</b></h2>
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-3">
+						<h2><b>Name</b></h2>
+					</div>
+					<div class="col-lg-1">
+						<h2>:</h2>
+					</div>
+					<div class="col-lg-4">
+						<h2>{{application_one.name}}</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-3">
+						<h2><b>Email</b></h2>
+					</div>
+					<div class="col-lg-1">
+						<h2>:</h2>
+					</div>
+					<div class="col-lg-4">
+						<h3>{{application_one.email}}</h3>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-3">
+						<h2><b>Phone No</b></h2>
+					</div>
+					<div class="col-lg-1">
+						<h2>:</h2>
+					</div>
+					<div class="col-lg-4">
+						<h3>{{application_one.phone}}</h3>
+					</div>
+				</div>
+
+				<br>
+				<hr>
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-10">
+						<h2><b>Job Application</b></h2>
+						<br>
+					</div>
+					<div class="col-lg-offset-2 col-lg-9">
+						{{application_one.job_application}}
+						<br><br>
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-lg-offset-5 col-lg-4">
+						<a class="btn btn-primary" href="/application-list">Back</a>
+					</div>
+				</div>
+				<br>
+				
+			</div>
+		</div>
+
+	</div>
+
+	<br><br><br><br>
+{% endblock %}

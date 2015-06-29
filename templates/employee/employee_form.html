@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Add Job Post</h1>
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
+			<br>
+			<form action="/employee-form/" method="post">{% csrf_token %}
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-2">
+							<label for="exampleInputEmail1">Name</label>
+						</div>
+						<div class="col-lg-10">
+							<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Title"> -->
+							{{ employee_form.name }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-2">
+							<label for="exampleInputEmail1">Email</label>
+						</div>
+						<div class="col-lg-10">
+							<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Location"> -->
+							{{ employee_form.email }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-2">
+							<label for="exampleInputEmail1">Phone</label>
+						</div>
+						<div class="col-lg-10">
+							<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Location"> -->
+							{{ employee_form.phone }}
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Job application</label>
+					<!-- <textarea class="form-control" rows="8"></textarea> -->
+					{{ employee_form.job_application }}
+				</div>
+
+				
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<br>
+		</div>
+	</div>
+	<br>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Add Job Post</h1>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
+			<br>
+			<form action="/add-job-post/" method="post" enctype="multipart/form-data">{% csrf_token %}
+				<div class="form-group">
+					<label for="exampleInputEmail1">Headline</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Title"> -->
+					{{ add_post_form.headline }}
+					{{ add_post_form.errors }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Name</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Title"> -->
+					{{ add_post_form.owner_name }}
+					{{ add_post_form.errors }}
+				</div>
+				<label>Type</label>
+				<div class="col-lg-offset-1">
+					{{ add_post_form.types }}
+
+					<!-- <div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							Full-time employment
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Short-term contract
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Internship
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Freelance or consulting
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Volunteer contributor
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Partner for a venture
+						</label>
+					</div> -->
+				</div>
+				<br>
+
+				<label>Category</label>
+				<div class="col-lg-offset-1">
+					{{ add_post_form.category }}
+					{{ add_post_form.errors }}
+
+					<!-- <div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							Programming
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Interaction Design
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Graphic Design
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Testing
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Systems Administration
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Business/Management
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Writer/Editor
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Customer Support
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Mobile (iPhone, Android, other)
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Office Administration
+						</label>
+					</div> -->
+				</div>
+				<br>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Location</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Location"> -->
+					{{ add_post_form.location }}
+					{{ add_post_form.errors }}
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Description</label>
+					<!-- <textarea class="form-control" rows="8"></textarea> -->
+					{{ add_post_form.description }}
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">What should a candidate submit when applying for this job?</label>
+					<!-- <textarea class="form-control" rows="3"></textarea> -->
+					{{ add_post_form.candidate_submit }}
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1">Company</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Website"> -->
+					{{ add_post_form.company }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Logo</label>
+					<!-- <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Application Website"> -->
+					{{ add_post_form.logo }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">URL</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Redirect URL"> -->
+					{{ add_post_form.url }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Twitter</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Notification URL"> -->
+					{{ add_post_form.twitter }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email</label>
+					<!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Notification URL"> -->
+					{{ add_post_form.email }}
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<br>
+		</div>
+	</div>
+	<br>
+{% endblock %}

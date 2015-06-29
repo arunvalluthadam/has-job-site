@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<br><br>
+	<div class="row">
+		
+
+		<div class="row" style="margin-bottom:40px;">
+			<div class="col-lg-offset-1 col-lg-10 box-shad">
+				<h3 style="color:#9932CC"><b>List of Employee Applications</b></h3>
+				<hr>
+				{% for list in application_list %}
+					<div class="row">
+						<a href="{% url 'application_one' list.slug %}">
+							<div class="col-lg-offset-1 col-lg-3">
+								{{list.name}}
+							</div>
+							<div class="col-lg-4">
+								{{list.email}}
+							</div>
+							<div class="col-lg-3">
+								{{list.phone}}
+							</div>
+						</a>
+					</div>
+					<hr>
+				{% endfor %}
+
+
+				<br>
+			</div>
+		</div>
+
+	</div>
+
+	<br><br><br><br>
+{% endblock %}

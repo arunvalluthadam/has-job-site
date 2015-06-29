@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Edit Job Post</h1>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
+			<br>
+			<form action="/edit-post/" method="post" enctype="multipart/form_data">{% csrf_token %}
+				<div class="form-group">
+					<label for="exampleInputEmail1">Headline</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Title"> -->
+					{{ edit_post.headline }}
+				</div>
+				<label>Type</label>
+				<div class="col-lg-offset-1">
+					{{ edit_post.types }}
+					<!-- <div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							Full-time employment
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Short-term contract
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Internship
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Freelance or consulting
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Volunteer contributor
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Partner for a venture
+						</label>
+					</div> -->
+				</div>
+				<br>
+
+				<label>Category</label>
+				<div class="col-lg-offset-1">
+					{{ edit_post.category }}
+					<!-- <div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							Programming
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Interaction Design
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Graphic Design
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Testing
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Systems Administration
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Business/Management
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Writer/Editor
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Customer Support
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Mobile (iPhone, Android, other)
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Office Administration
+						</label>
+					</div> -->
+				</div>
+				<br>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Location</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Location"> -->
+					{{ edit_post.location }}
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Description</label>
+					<!-- <textarea class="form-control" rows="8"></textarea> -->
+					{{ edit_post.description }}
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">What should a candidate submit when applying for this job?</label>
+					<!-- <textarea class="form-control" rows="3"></textarea> -->
+					{{ edit_post.candidate_submit }}
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1">Name</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Website"> -->
+					{{ edit_post.name }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Logo</label>
+					<!-- <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Application Website"> -->
+					{{ edit_post.logo }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">URL</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Redirect URL"> -->
+					{{ edit_post.url }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Twitter</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Notification URL"> -->
+					{{ edit_post.twitter }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email</label>
+					<!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Notification URL"> -->
+					{{ edit_post.email }}
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<br>
+		</div>
+	</div>
+{% endblock %}

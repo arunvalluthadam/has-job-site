@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Sign Up</h1>
+
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-3 col-lg-6 img img-rounded box-shad auth-color" style="border: 1px solid grey;margin-right:-50px;">
+			<!-- <div class="col-lg-12 img img-rounded" style="background-color:#0000FF;color:white;">
+				<h3>Employer - Employee Signup</h3>
+			</div>
+			<br><br> --><br>
+			<form action="/signup/" method="post">
+				<div class="form-group">
+					<label for="exampleInputEmail1">First Name</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name"> -->
+					{{ signup_form.first_name }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Last Name</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Last Name"> -->
+					{{ signup_form.last_name }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">User Name</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Last Name"> -->
+					{{ signup_form.username }}{{ signup_form.errors }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> -->
+					{{ signup_form.email }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password1">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password2">
+				</div>
+				<div class="checkbox">
+					<label>
+						<!-- <input type="checkbox" value=""> -->
+						{{ signup_form.is_employer }}
+						If you are an Employer
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<!-- <input type="checkbox" value=""> -->
+						{{ signup_form.is_employee }}
+						If you are an Employee
+					</label>
+				</div>
+				<button type="submit" class="btn btn-info">Submit</button>
+			</form>
+			<br>
+		</div>
+
+	</div>
+	<br><br><br>
+{% endblock %}

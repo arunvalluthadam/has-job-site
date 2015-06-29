@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Organization</h1>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
+			<br>
+			<form>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Organization Name</label>
+					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Organization Name">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Username</label>
+					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Domain</label>
+					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domain">
+				</div>
+				<button type="submit" class="btn btn-primary">Create</button>
+				<a class="btn btn-danger" href="/profile" style="width:100px;position:relative;left:50px;">Back</a>
+			</form>
+			<br>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>My Profile</h1>
+
+	<br><br>
+	<div class="row">
+		<div class="row name-box img img-rounded" style="margin-left:0px;">
+			<div class="col-lg-10">
+				<div class="row">
+					<div class="col-lg-3" style="background-color:#F0D8B8">
+						<br>
+						<h4><strong>My Name :</strong></h4>
+					</div>
+					<div class="col-lg-9" style="background-color:#98FB98;height:61px;">
+						<br>
+						<p>{{user.first_name}} {{user.last_name}}</p>
+						<!-- <p>Arun V Jose</p> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-10">
+				<div class="row">
+					<div class="col-lg-3" style="background-color:#F0D8B8;">
+						<h4 style="position:relative;top:15px;"><strong>My Username :</strong></h4>
+						<br>
+					</div>
+					<div class="col-lg-9" style="background-color:#98FB98;height:60px;">
+						<br>
+						<p>{{user.username}}</p>
+						<!-- <p>Simplans</p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<a class="btn btn-info" href="/edit-profile">Edit This</a>
+		<a class="btn btn-warning" href="/change-password">Change Password</a>
+
+		<div class="row">
+			<div class="col-lg-8">
+				<h2>My Email Addresses</h2>
+			</div>
+			<div class="col-lg-offset-1 col-lg-5">
+				<ul>
+					{% for add_email in add_emails %}
+					<li><h4>{{add_email.email}}</h4></li>
+					{% endfor %}
+					<li><h4><a href="/add-email">Add another email address</a></h4></li>
+				</ul>
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-8">
+				<h2>My Mobile Numbers</h2>
+			</div>
+			<div class="col-lg-offset-1 col-lg-5">
+				<ul>
+					{% for add_number in add_numbers %}
+						<li><h4>+91{{add_number.number}}</h4></li>
+					{% endfor %}
+					<li><h4><a href="/add-number">Add another phone number</a></h4></li>
+				</ul>
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-8">
+				<h2>My Applications</h2>
+			</div>
+			<div class="col-lg-offset-1 col-lg-5">
+				<ul>
+					{% for application in add_application %}
+							<li><h4>{{ application.application_title }}</h4></li>
+					{% endfor %}
+					<li><h4><a href="/client-application">Register an application</a></h4></li>
+				</ul>
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-8">
+				<h2>My Organizations</h2>
+			</div>
+			<div class="col-lg-offset-1 col-lg-5">
+				<ul>
+					{% for organization in add_organization %}
+						<li><h4>{{ organization.organization_name }}</h4></li>
+					{% endfor %}
+					<li><h4><a href="/add-organization">Create a new organization</a></h4></li>
+				</ul>
+				
+			</div>
+		</div>
+
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+{% endblock %}

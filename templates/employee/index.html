@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <br><br>
+
+  <div style="">
+    <div class="row" style="margin-left:10px;margin-right:-100px;">
+      
+      <div class="col-lg-3 img img-rounded box-shad box-color" style="border:1px solid;margin-right:97px;margin-bottom:50px;height:200px;">
+        <div class="row">
+          <br><br>
+          <div class="col-lg-6">
+            <div class="pull-left">
+              <!-- Place !!! -->
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pull-right">
+              <!-- Date !!! -->
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-font" style="position:relative;left:40px;">
+          <a href="/add-job-post">Create Your Posts For Employees Here</a>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="pull-right">
+              <!-- Company Name !!! -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% for list in job_list %}
+        <a class="job-box" href="{% url 'home_one' list.slug %}">
+          <div class="col-lg-3 img img-rounded box-shad box-color" style="border:1px solid;margin-right:97px;margin-bottom:50px;height:200px;">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="pull-left">
+                  <!-- Place !!! -->
+                  {{ list.location }}
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="pull-right">
+                  <!-- Date !!! -->
+                  {{ list.date }}
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="text-font">
+              <!-- djhdfjg kfhdgjdh fgjkdghf dgddgdfgf dgdfgdfg fdgdfgd fgdgfdgf dgdgdfgd fgdfdgd fgdgdgd fgdfgdgf dgfdgfdg -->
+              {{ list.headline }}
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="pull-right">
+                  <!-- Company Name !!! -->
+                  {{ list.company }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+
+      <!-- <div class="col-lg-3 img img-rounded box-shad box-color" style="border:1px solid;margin-right:97px;margin-bottom:50px;height:200px;">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="pull-left">
+              Place !!!
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pull-right">
+              Date !!!
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-font">
+          djhdfjgk fhdgjdhfg jkdghfdgd dgdfgfd gdfgdfgfd gdfgdfgd gfdgfdgd gdfgdfgdf dgdfgdg dgdfgdfgd gfdgfdgfdg
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="pull-right">
+              Company Name !!!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 img img-rounded box-shad box-color" style="border:1px solid;margin-right:97px;margin-bottom:50px;height:200px;">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="pull-left">
+              Place !!!
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pull-right">
+              Date !!!
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-font">
+          djhdfjgk fhdgjdhfg jkdghfdgd dgdfgfd gdfgdfgfd gdfgdfgdf gfdgfdgdg dfgdfgdf dgdfgdgd gdfgdfgdg fdgfdgfdg
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="pull-right">
+              Company Name !!!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 img img-rounded box-shad box-color" style="border:1px solid;margin-right:97px;margin-bottom:50px;height:200px;">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="pull-left">
+              Place !!!
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pull-right">
+              Date !!!
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-font">
+          djhdfjgk fhdgjdhfg jkdghfdgd dgdfgfd gdfgdfgfd gdfgdfgdf gfdgfdgdg dfgdfgdf dgdfgdgd gdfgdfgdg fdgfdgfdg
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="pull-right">
+              Company Name !!!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 img img-rounded box-shad box-color" style="border:1px solid;margin-right:97px;margin-bottom:50px;height:200px;">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="pull-left">
+              Place !!!
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pull-right">
+              Date !!!
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-font">
+          djhdfjgk fhdgjdhfg jkdghfdgd dgdfgfd gdfgdfgfd gdfgdfgdf gfdgfdgdg dfgdfgdf dgdfgdgd gdfgdfgdg fdgfdgfdg
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="pull-right">
+              Company Name !!!
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+{% endblock %}

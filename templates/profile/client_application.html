@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Client Application</h1>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
+			<br>
+			<form action="/client-application/" method="post">{% csrf_token %}
+				<div class="form-group">
+					<label for="exampleInputEmail1">Application Title</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Title"> -->
+					{{ client_form.application_title }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Description</label>
+					<!-- <textarea class="form-control" rows="5"></textarea> -->
+					{{ client_form.description }}
+				</div>
+				<label>Type</label>
+				<div class="col-lg-offset-1">
+					<!-- <div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							Confidential
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Public
+						</label>
+					</div> -->
+					{{ client_form.types }}
+				</div>
+				<br>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Application Website</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Application Website"> -->
+					{{ client_form.application_website }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Redirect URL</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Redirect URL"> -->
+					{{ client_form.redirect_url }}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Notification URL</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Notification URL"> -->
+					{{ client_form.notification_url }}
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a class="btn btn-danger" href="/profile" style="width:100px;position:relative;left:50px;">Back</a>
+			</form>
+			<br>
+		</div>
+	</div>
+{% endblock %}

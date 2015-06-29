@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Add Email</h1>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
+			<br>
+			<form action="/add-email/" method="post">{%csrf_token%}
+				<div class="form-group">
+					<label for="exampleInputEmail1">Enter Email</label>
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name"> -->
+					{{form.email}}
+				</div>
+				<br>
+				<label>Type</label>
+				<div class="col-lg-offset-1">
+					{{form.types}}
+					<!-- <div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							Home
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Work
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							Other
+						</label>
+					</div> -->
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a class="btn btn-danger" href="/profile" style="width:100px;position:relative;left:50px;">Back</a>
+			</form>
+			<br>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<br><br>
+	<div class="row">
+
+		<div class="row" style="margin-bottom:40px;">
+			<div class="col-lg-offset-1 col-lg-10 box-shad">
+				<h2 style="color:#9932CC"><b>{{job_one.headline}}</b></h2>
+				<p>Posted {{job_one.date}} by {{job_one.owner_name}}</p>
+				<p><a href="#">{{job_one.company}}</a>  · <a href="#">{{job_one.location}}</a> · <a href="#">{{job_one.url}}</a> · <a href="#">{{job_one.types}}</a> · <a href="#">{{job_one.category}}</a></p>
+				<hr>
+				<div class="row">
+					<!-- <div class="col-lg-offset-1 col-lg-10">
+						<h3><b>Job Application</b></h3>
+						<br>
+					</div> -->
+					<div class="col-lg-offset-1 col-lg-10" style="font-size:18px;">
+						{{job_one.description}}
+						<br><br>
+					</div>
+				</div>
+
+				{% if job_one.candidate_submit %}
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-10">
+						<h3><b>Job Application</b></h3>
+						<br>
+					</div>
+					<div class="col-lg-offset-2 col-lg-9" style="font-size:18px;">
+						{{job_one.candidate_submit}}
+						<br><br>
+					</div>
+				</div>
+				{% else %}
+				{% endif %}
+
+				<div class="row">
+					<div class="col-lg-offset-2 col-lg-10" style="color:green;">
+						<h3><b>Apply For This Job</b></h3>
+						<br>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-offset-5">
+						<a class="btn btn-primary" href="/employee-form">Employee Form</a>
+					</div>
+				</div>
+
+				<br>
+			</div>
+		</div>
+
+	</div>
+
+	<br><br><br><br>
+{% endblock %}
