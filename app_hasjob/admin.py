@@ -83,6 +83,7 @@ admin.site.register(ClientApplication, ClientApplicationAdmin)
 
 # ------------------------------------ Employer Details ----------------------------------
 
+admin.site.register(Location)
 admin.site.register(AddJobTypes)
 admin.site.register(AddJobCategory)
 

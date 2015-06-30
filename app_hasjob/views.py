@@ -33,6 +33,23 @@ def employee_form(request):
 	form = EmployeeForm()
 	return render(request, 'employee/employee_form.html', {'employee_form': form})
 
+def search_jobs(request):
+	filter_form = JobFilterForm()
+	filter_form.fields["location__id"].queryset = Location.objects.all()
+	filter_form.fields["add_job_types__id"].queryset = AddJobTypes.objects.all()
+	filter_form.fields["add_job_category__id"].queryset = AddJobCategory.objects.all()
+	if request.GET:
+		tasks = AddJobPost(request.GET, queryset=tasks)
+		filter_form = JobFilterForm(request.GET)
+		if not request.GET['location__id'] == "":
+			filter_form.fields['add_job_types__id'].queryset = AddJobTypes.objects.filter(location__id=request.GET['location__id'])
+			filter_form.fields['add_job_category__id'].queryset = AddJobTypes.objects.filter(location__id=request.GET['location__id'])
+
+		elif not request.GET['add_job_types__id'] == "":
+			filter_form.fields['add_job_category__id'].queryset = AddJobTypes.objects.filter(add_job_types__id=request.GET['add_job_types__id'])	
+		# return HttpResponseRedirect('')
+	return render(request, 'employee/search_jobs.html', {'tasks': tasks, 'filter_form': filter_form})
+
 # ---------------------------------- End Employee details ------------------------------
 
 # ---------------------------------- Profile details ------------------------------

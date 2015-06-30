@@ -44,6 +44,17 @@ class Employee(models.Model):
 
 # ------------------------------------ Employer Details ----------------------------------
 
+class Location(models.Model):
+	location = models.CharField(max_length=200)
+
+	def __str__(self):  
+		return self.location
+
+	class Meta:
+		verbose_name = ("Location")
+		verbose_name_plural = ("Locations")
+
+
 class AddJobTypes(models.Model):
 	types = models.CharField(max_length=200)
 
@@ -69,9 +80,10 @@ class AddJobCategory(models.Model):
 class AddJobPost(models.Model):
 	headline = models.CharField(max_length=200)
 	owner_name = models.CharField(max_length=200)
+	location = models.ForeignKey(Location)
 	types = models.ForeignKey(AddJobTypes)
 	category = models.ForeignKey(AddJobCategory)
-	location = models.CharField(max_length=200)
+	# location = models.CharField(max_length=200)
 	description = models.TextField(null=True, blank=True)
 	candidate_submit = models.TextField(null=True, blank=True)
 	company = models.CharField(max_length=200)

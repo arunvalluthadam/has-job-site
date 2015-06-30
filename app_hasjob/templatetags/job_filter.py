@@ -1,9 +1,10 @@
 from django import template
-from .models import *
+from app_hasjob.models import *
+from app_hasjob.forms import *
 
 register = template.Library()
 
 @register.inclusion_tag("tags/job_filter.html")
 def job_filter(request):
-	user = Signup.objects.get(username=request.user.username)
-	return {'user': user}
+	filter_form = JobFilterForm(request.GET)
+	return {'filter_form': filter_form}

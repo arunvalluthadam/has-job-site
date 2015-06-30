@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^home/$', 'app_hasjob.views.home', name='home'),
     url(r'^home-one/(?P<slug>[\w-]+)$', 'app_hasjob.views.home_one', name='home_one'),
     url(r'^employee-form/$', 'app_hasjob.views.employee_form', name='employee_form'),
+    url(r'^search-jobs/$', 'app_hasjob.views.search_jobs', name='search_jobs'),
 
 # ----------------------------- End Employee Details -----------------------------------------
 

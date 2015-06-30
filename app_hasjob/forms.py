@@ -15,6 +15,12 @@ class SignupForm(forms.ModelForm):
 			'is_employee': forms.CheckboxInput(),
 		}
 
+class JobFilterForm(forms.Form):
+	location__id = forms.ModelChoiceField(queryset=Location.objects.all(),widget=forms.Select(attrs={"class":"form-control","style":"width:220px"}))
+	add_job_types__id = forms.ModelChoiceField(queryset=AddJobTypes.objects.all(),widget=forms.Select(attrs={"class":"form-control","style":"width:220px"}))
+	add_job_category__id = forms.ModelChoiceField(queryset=AddJobCategory.objects.all(),widget=forms.Select(attrs={"class":"form-control","style":"width:220px"}))
+	
+
 # -------------------------------------- profile details ----------------------------------------
 
 class SignupEditForm(forms.ModelForm):
@@ -89,7 +95,7 @@ class AddJobPostForm(forms.ModelForm):
 			'owner_name': forms.TextInput(attrs={"class": "form-control", "type": "text", "placeholder": "Name of Employer"}),
 			'types': forms.RadioSelect(attrs={"class": "radio"}),
 			'category': forms.RadioSelect(attrs={"class": "radio"}),
-			'location': forms.TextInput(attrs={"class": "form-control", "type": "text", "placeholder": "Location"}),
+			'location': forms.Select(attrs={"class": "form-control", "type": "text", "placeholder": "Location"}),
 			'description': forms.Textarea(attrs={"class": "form-control", "type": "text", "placeholder": "Description", "rows": "5"}),
 			'candidate_submit': forms.Textarea(attrs={"class": "form-control", "type": "text", "placeholder": "Candidate Submit", "rows": "5"}),
 			'company': forms.TextInput(attrs={"class": "form-control", "type": "text", "placeholder": "name"}),

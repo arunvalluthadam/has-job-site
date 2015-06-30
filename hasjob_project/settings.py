@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'app_hasjob',
     'lineage',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,6 +89,16 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
+
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': root('whoosh_index'),
+        # 'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
