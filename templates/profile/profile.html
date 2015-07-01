@@ -48,7 +48,7 @@
 					{% for add_email in add_emails %}
 					<li><h4>{{add_email.email}}</h4></li>
 					{% endfor %}
-					<li><h4><a href="/add-email">Add another email address</a></h4></li>
+					<li><h4><a style="color:green;" href="/add-email">Add another email address</a></h4></li>
 				</ul>
 				
 			</div>
@@ -63,7 +63,7 @@
 					{% for add_number in add_numbers %}
 						<li><h4>+91{{add_number.number}}</h4></li>
 					{% endfor %}
-					<li><h4><a href="/add-number">Add another phone number</a></h4></li>
+					<li><h4><a style="color:green;" href="/add-number">Add another phone number</a></h4></li>
 				</ul>
 				
 			</div>
@@ -76,9 +76,10 @@
 			<div class="col-lg-offset-1 col-lg-5">
 				<ul>
 					{% for application in add_application %}
-							<li><h4>{{ application.application_title }}</h4></li>
+							<li><h4><a href="{% url 'view_client' application.slug %}">{{ application.application_title }}</a></h4></li>
 					{% endfor %}
-					<li><h4><a href="/client-application">Register an application</a></h4></li>
+					<hr>
+					<li><h4 style="font-size:20px;"><a style="color:green;" href="/client-application">Register an application</a></h4></li>
 				</ul>
 				
 			</div>
@@ -91,9 +92,10 @@
 			<div class="col-lg-offset-1 col-lg-5">
 				<ul>
 					{% for organization in add_organization %}
-						<li><h4>{{ organization.organization_name }}</h4></li>
+						<li><h4><a href="{% url 'view_organization' organization.slug %}">{{ organization.organization_name }}</a></h4></li>
 					{% endfor %}
-					<li><h4><a href="/add-organization">Create a new organization</a></h4></li>
+					<hr>
+					<li><h4 style="font-size:20px;"><a style="color:green;" href="/add-organization">Create a new organization</a></h4></li>
 				</ul>
 				
 			</div>

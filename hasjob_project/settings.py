@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'app_hasjob',
     'lineage',
     'haystack',
+    'django_filters',
 )
 
 MIDDLEWARE_CLASSES = (

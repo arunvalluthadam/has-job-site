@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<br><br>
+	<div class="row">
+		
+
+		<div class="row">
+			<div class="col-lg-offset-1 col-lg-10 box-shad">
+				<br>
+				<h2 style="color:#9932CC"><b>Organization</b></h2>
+				<hr>
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-4">
+						<h3><b>Organization Name</b></h3>
+					</div>
+					<div class="col-lg-1">
+						<h2>:</h2>
+					</div>
+					<div class="col-lg-4">
+						<h4>{{view_organization.organization_name}}</h4>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-4">
+						<h3><b>UserName</b></h3>
+					</div>
+					<div class="col-lg-1">
+						<h2>:</h2>
+					</div>
+					<div class="col-lg-4">
+						<h4>{{view_organization.username}}</h4>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-4">
+						<h3><b>Domain</b></h3>
+					</div>
+					<div class="col-lg-1">
+						<h3>:</h3>
+					</div>
+					<div class="col-lg-4">
+						<h4>{{view_organization.domain}}</h4>
+					</div>
+				</div>
+
+				<br>
+				
+				<br><br>
+				<div class="row">
+					<div class="col-lg-offset-5 col-lg-4">
+						<a class="btn btn-primary" href="/profile">Back</a>
+					</div>
+				</div>
+				<br>
+				
+			</div>
+		</div>
+
+	</div>
+
+	<br><br><br><br>
+{% endblock %}

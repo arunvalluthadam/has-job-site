@@ -7,15 +7,17 @@
 	<div class="row">
 		<div class="col-lg-offset-2 col-lg-8 img img-rounded box-shad edit-color" style="border: 1px solid grey">
 			<br>
-			<form>
+			<form action="/add-number/" method="post">{% csrf_token %}
 				<div class="form-group">
 					<label for="exampleInputEmail1">Enter Number</label>
-					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name">
+					<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name"> -->
+					{{number_form.number}}
 				</div>
 				<br>
 				<label>Type</label>
 				<div class="col-lg-offset-1">
-					<div class="radio">
+					{{number_form.types}}
+					<!-- <div class="radio">
 						<label>
 							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
 							Mobile
@@ -32,7 +34,7 @@
 							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
 							Other
 						</label>
-					</div>
+					</div> -->
 				</div>
 				<br>
 				<button type="submit" class="btn btn-primary">Submit</button>

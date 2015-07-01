@@ -20,7 +20,10 @@ urlpatterns = patterns('',
     url(r'^add-email/$', 'app_hasjob.views.add_email', name='add_email'),
     url(r'^add-number/$', 'app_hasjob.views.add_number', name='add_number'),
     url(r'^client-application/$', 'app_hasjob.views.client_application', name='client_application'),
+    url(r'^view-client/(?P<slug>[\w-]+)$', 'app_hasjob.views.view_client', name='view_client'),
     url(r'^add-organization/$', 'app_hasjob.views.add_organization', name='add_organization'),
+    url(r'^view-organization/(?P<slug>[\w-]+)$', 'app_hasjob.views.view_organization', name='view_organization'),
+
 
 # ----------------------------- End Profile Details -----------------------------------------
 
@@ -28,10 +31,13 @@ urlpatterns = patterns('',
 
     url(r'^add-job-post/$', 'app_hasjob.views.add_job_post', name='add_job_post'),
     url(r'^review/$', 'app_hasjob.views.review', name='review'),
-    url(r'^edit-post/$', 'app_hasjob.views.edit_post', name='edit_post'),
+    url(r'^edit-post/(?P<slug>[\w-]+)$', 'app_hasjob.views.edit_post', name='edit_post'),
     url(r'^confirm/$', 'app_hasjob.views.confirm', name='confirm'),
     url(r'^application-list/$', 'app_hasjob.views.application_list', name='application_list'),
     url(r'^application-one/(?P<slug>[\w-]+)$', 'app_hasjob.views.application_one', name='application_one'),
+    url(r'^location/(?P<slug>[\w-]+)$', 'app_hasjob.views.location', name='location'),
+    url(r'^types/(?P<slug>[\w-]+)$', 'app_hasjob.views.types', name='types'),
+    url(r'^category/(?P<slug>[\w-]+)$', 'app_hasjob.views.category', name='category'),
 
 # ----------------------------- End Employer Details -----------------------------------------
 

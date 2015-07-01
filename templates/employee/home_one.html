@@ -9,7 +9,7 @@
 			<div class="col-lg-offset-1 col-lg-10 box-shad">
 				<h2 style="color:#9932CC"><b>{{job_one.headline}}</b></h2>
 				<p>Posted {{job_one.date}} by {{job_one.owner_name}}</p>
-				<p><a href="#">{{job_one.company}}</a>  · <a href="#">{{job_one.location}}</a> · <a href="#">{{job_one.url}}</a> · <a href="#">{{job_one.types}}</a> · <a href="#">{{job_one.category}}</a></p>
+				<p><a href="https://www.google.co.in/search?q={{job_one.company}}">{{job_one.company}}</a> · <a href="{% url 'location' job_one.location.slug %}">{{job_one.location}}</a> · <a href="{{job_one.url}}">{{job_one.url}}</a> · <a href="{% url 'types' job_one.types.slug %}">{{job_one.types}}</a> · <a href="{% url 'category' job_one.category.slug %}">{{job_one.category}}</a></p>
 				<hr>
 				<div class="row">
 					<!-- <div class="col-lg-offset-1 col-lg-10">

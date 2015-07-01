@@ -47,7 +47,7 @@ admin.site.register(AddNumber, AddNumberAdmin)
 
 class AddOrganizationAdmin(admin.ModelAdmin):
 	model = AddOrganization
-	list_display = ['organization_name', 'username', 'domain']
+	list_display = ['organization_name','slug', 'username', 'domain']
 
 admin.site.register(AddOrganization, AddOrganizationAdmin)
 
@@ -64,7 +64,7 @@ admin.site.register(AddOrganization, AddOrganizationAdmin)
 
 class ClientApplicationAdmin(admin.ModelAdmin):
 	model = ClientApplication
-	list_display = ['application_title', 'description', 'types', 'application_website', 'redirect_url', 'notification_url']
+	list_display = ['application_title','slug', 'description', 'types', 'application_website', 'redirect_url', 'notification_url']
 
 admin.site.register(ClientApplication, ClientApplicationAdmin)
 
@@ -83,9 +83,26 @@ admin.site.register(ClientApplication, ClientApplicationAdmin)
 
 # ------------------------------------ Employer Details ----------------------------------
 
-admin.site.register(Location)
-admin.site.register(AddJobTypes)
-admin.site.register(AddJobCategory)
+class LocationAdmin(admin.ModelAdmin):
+	model = Location
+	list_display = ['location']
+
+admin.site.register(Location, LocationAdmin)
+
+
+class AddJobTypesAdmin(admin.ModelAdmin):
+	model = AddJobTypes
+	list_display = ['types']
+
+admin.site.register(AddJobTypes, AddJobTypesAdmin)
+
+
+class AddJobCategoryAdmin(admin.ModelAdmin):
+	model = AddJobCategory
+	list_display = ['category']
+
+admin.site.register(AddJobCategory, AddJobCategoryAdmin)
+
 
 class AddJobPostAdmin(admin.ModelAdmin):
 	model = AddJobPost

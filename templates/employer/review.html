@@ -11,21 +11,21 @@
 			<div class="col-lg-offset-2 col-lg-8 box-shad">
 				<h3 style="color:#9932CC"><b>Review This Post</b></h3>
 				<p>This is a preview. It is only visible to you.</p>
-				<a class="btn btn-primary" href="/confirm">This Looks Good, Confirm it</a>
-				<a class="btn btn-info" href="/edit-post/">Edit again</a>
+				<a class="btn btn-primary" href="/home">This Looks Good, Confirm it</a>
+				<a class="btn btn-info" href="{% url 'edit_post' review.slug %}">Edit again</a>
 				<br><br>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-lg-offset-2 col-lg-8 box-shad">
-				<h2 style="color:#FF4500"><b>Python/Django Jobs</b></h2>
-				<p>Posted by <b>June 19, 2025</b> -  by <b>Anil V Jose(~anilvjose)</b></p>
+				<h2 style="color:#FF4500"><b>{{review.headline}}</b></h2>
+				<p>Posted by <b>{{review.date}}</b> -  by <b>{{review.owner_name}}</b></p>
 				<br>
-				<p><a href="#">This is a bref Description about job</a>, Bangloore . <a href="#">arunvalluthadam.wordpress.com</a> . <a href="#">Full-time employment</a> . <a href="#">Programming</a></p>
+				<p><a href="https://www.google.co.in/search?q={{job_one.company}}">{{review.company}}</a>, <a href="{% url 'location' review.location.slug %}">{{review.location}}</a> . <a href="{{review.url}}">{{review.url}}</a> . <a href="{% url 'types' review.types.slug %}">{{review.types}}</a> . <a href="{% url 'category' review.category.slug %}">{{review.category}}</a></p>
 				<hr>
 				<div class="col-lg-offset-1 col-lg-10">
-					Concur - an SAP group company, is one of the largest SaaS companies in the world. Based out of Seattle-US, Concur is the leader in integrated travel & expense with over 25,000 customers with 30 million end users. More than 75% of Fortune-500 companies use Concur as their Travel & Expense solution.
+					{{ review.description }}
 					<br><br>
 				</div>
 				<br><br>

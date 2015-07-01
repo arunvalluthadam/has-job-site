@@ -9,5 +9,7 @@ class AddJobPostIndex(indexes.SearchIndex, indexes.Indexable):
 	date = indexes.DateTimeField(model_attr='date')
 	location = indexes.CharField(model_attr='location')
 
+	content_auto = indexes.EdgeNgramField(model_attr='company')
+
 	def get_model(self):
 		return AddJobPost

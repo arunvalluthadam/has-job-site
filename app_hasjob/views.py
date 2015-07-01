@@ -6,7 +6,15 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from .forms import *
 
+import django_filters
+
 # Create your views here.
+
+class JobFilter(django_filters.FilterSet):
+	class Meta:
+		model = AddJobPost
+		fields = ['location', 'types', 'category']
+
 
 # ----------------------------------  Employee details ------------------------------
 
@@ -16,6 +24,7 @@ def home(request):
 
 def home_one(request, slug):
 	job_one = AddJobPost.objects.get(slug=slug)
+
 	return render(request, 'employee/home_one.html', {'job_one': job_one})
 
 def employee_form(request):
@@ -34,21 +43,23 @@ def employee_form(request):
 	return render(request, 'employee/employee_form.html', {'employee_form': form})
 
 def search_jobs(request):
+	tasks = AddJobPost.objects.filter(company__iregex=request.GET['company'])
 	filter_form = JobFilterForm()
 	filter_form.fields["location__id"].queryset = Location.objects.all()
 	filter_form.fields["add_job_types__id"].queryset = AddJobTypes.objects.all()
 	filter_form.fields["add_job_category__id"].queryset = AddJobCategory.objects.all()
 	if request.GET:
-		tasks = AddJobPost(request.GET, queryset=tasks)
+		search_result = JobFilter(request.GET, queryset=tasks)
 		filter_form = JobFilterForm(request.GET)
-		if not request.GET['location__id'] == "":
-			filter_form.fields['add_job_types__id'].queryset = AddJobTypes.objects.filter(location__id=request.GET['location__id'])
-			filter_form.fields['add_job_category__id'].queryset = AddJobTypes.objects.filter(location__id=request.GET['location__id'])
-
-		elif not request.GET['add_job_types__id'] == "":
-			filter_form.fields['add_job_category__id'].queryset = AddJobTypes.objects.filter(add_job_types__id=request.GET['add_job_types__id'])	
-		# return HttpResponseRedirect('')
-	return render(request, 'employee/search_jobs.html', {'tasks': tasks, 'filter_form': filter_form})
+		if not request.GET['location__id'] == "" and not request.GET['add_job_types__id'] == "" and not request.GET['add_job_category__id'] == "":
+			filter_form.fields['location__id'].queryset = Location.objects.filter(location=request.GET['location__id'])
+			filter_form.fields['add_job_types__id'].queryset = AddJobTypes.objects.filter(types=request.GET['add_job_types__id'])
+			filter_form.fields['add_job_category__id'].queryset = AddJobCategory.objects.filter(category=request.GET['add_job_category__id'])
+	variables = {
+		'search_result': search_result, 
+		'filter_form': filter_form, 
+	}	
+	return render(request, 'employee/search_jobs.html', variables)
 
 # ---------------------------------- End Employee details ------------------------------
 
@@ -136,7 +147,7 @@ def add_number(request):
 		else:
 			print form.errors
 	form = AddNumberForm()
-	return render(request, 'profile/add_number.html')
+	return render(request, 'profile/add_number.html', {"number_form": form})
 
 def client_application(request):
 	if request.method == "POST":
@@ -151,6 +162,10 @@ def client_application(request):
 	form = ClientApplicationForm()
 	return render(request, 'profile/client_application.html', {'client_form': form})
 
+def view_client(request, slug):
+	view_client = ClientApplication.objects.get(slug=slug)
+	return render(request, 'profile/view_client.html', {'view_client': view_client})
+
 def add_organization(request):
 	if request.method == "POST":
 		form = AddOrganizationForm(request.POST)
@@ -162,11 +177,33 @@ def add_organization(request):
 		else:
 			print form.errors
 	form = AddOrganizationForm()
-	return render(request, 'profile/add_organization.html') 
+	return render(request, 'profile/add_organization.html', {'organization_form': form})
+
+def view_organization(request, slug):
+	view_organization = AddOrganization.objects.get(slug=slug)
+	return render(request, 'profile/view_organization.html', {'view_organization': view_organization})
 
 # ---------------------------------- End Profile details ------------------------------
 
 # ---------------------------------- Employer details ------------------------------
+
+def location(request, slug):
+	location = Location.objects.get(slug=slug)
+	job_location = AddJobPost.objects.filter(location=location)
+	# print job_location
+	return render(request, 'employer/location.html', {'job_location': job_location})
+
+def types(request, slug):
+	types = AddJobTypes.objects.get(slug=slug)
+	job_types = AddJobPost.objects.filter(types=types)
+	# print job_types
+	return render(request, 'employer/types.html', {'job_types': job_types})
+
+def category(request, slug):
+	category = AddJobCategory.objects.get(slug=slug)
+	job_category = AddJobPost.objects.filter(category=category)
+	# print job_category
+	return render(request, 'employer/category.html', {'job_category': job_category})
 
 def add_job_post(request):
 	if request.method == "POST":
@@ -182,10 +219,11 @@ def add_job_post(request):
 	return render(request, 'employer/add_job_post.html', { 'add_post_form': form })
 
 def review(request):
-	return render(request, 'employer/review.html')
+	review = AddJobPost.objects.order_by('-id')[0]
+	return render(request, 'employer/review.html', {"review": review})
 
-def edit_post(request, post_id=1):
-	edit_post = AddJobPost.objects.get(id=post_id)
+def edit_post(request, slug):
+	edit_post = AddJobPost.objects.get(slug=slug)
 	if request.method == "POST":
 		form = AddJobPostForm(request.POST, request.FILES, instance=edit_post)
 		if form.is_valid():

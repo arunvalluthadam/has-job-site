@@ -46,6 +46,7 @@ class Employee(models.Model):
 
 class Location(models.Model):
 	location = models.CharField(max_length=200)
+	slug = models.SlugField(unique=True, blank=True, null=True)
 
 	def __str__(self):  
 		return self.location
@@ -54,9 +55,14 @@ class Location(models.Model):
 		verbose_name = ("Location")
 		verbose_name_plural = ("Locations")
 
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.location)
+		super(Location, self).save(*args, **kwargs)
+
 
 class AddJobTypes(models.Model):
 	types = models.CharField(max_length=200)
+	slug = models.SlugField(unique=True, blank=True, null=True)
 
 	def __str__(self):  
 		return self.types
@@ -65,9 +71,14 @@ class AddJobTypes(models.Model):
 		verbose_name = ("Add Job Type")
 		verbose_name_plural = ("Add Job Types")
 
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.types)
+		super(AddJobTypes, self).save(*args, **kwargs)
+
 
 class AddJobCategory(models.Model):
 	category = models.CharField(max_length=200)
+	slug = models.SlugField(unique=True, blank=True, null=True)
 
 	def __str__(self):  
 		return self.category
@@ -75,6 +86,10 @@ class AddJobCategory(models.Model):
 	class Meta:
 		verbose_name = ("Add Job Category")
 		verbose_name_plural = ("Add Job Categories")
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.category)
+		super(AddJobCategory, self).save(*args, **kwargs)
 
 
 class AddJobPost(models.Model):
@@ -88,7 +103,7 @@ class AddJobPost(models.Model):
 	candidate_submit = models.TextField(null=True, blank=True)
 	company = models.CharField(max_length=200)
 	# slug
-	slug = models.SlugField(unique=True)
+	slug = models.SlugField(unique=True,null=True, blank=True)
 	logo = models.ImageField(verbose_name=u'Image', upload_to="uploads/logo", null=True, blank=True)
 	url = models.URLField(null=True, blank=True)
 	twitter = models.URLField(null=True, blank=True)
@@ -190,7 +205,7 @@ class AddOrganization(models.Model):
 	# head_organization = models.ForeignKey(HeadOrganization)
 	organization_name = models.CharField(max_length=200)
 	# slug
-	slug = models.SlugField(unique=True)
+	slug = models.SlugField(unique=True, null=True, blank=True)
 	username = models.CharField(max_length=200)
 	domain = models.CharField(max_length=200)
 
@@ -231,7 +246,7 @@ class ClientApplication(models.Model):
 	# head_application = models.ForeignKey(HeadApplication, null=True, blank=True)
 	application_title = models.CharField(max_length=200)
 	# slug
-	slug = models.SlugField(unique=True)
+	slug = models.SlugField(unique=True, null=True, blank=True)
 	description = models.TextField()
 	types = models.ForeignKey(ClientTypes)
 	application_website = models.URLField()

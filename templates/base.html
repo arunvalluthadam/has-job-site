@@ -43,13 +43,10 @@
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
+			<li class="{% ancestor '/home' %}"><a href="/home">Home</a></li>
           	{% if user.is_authenticated %}
-          		{% if user.is_employer %}
-          				<li class="{% ancestor '/add-job-post' %}"><a href="/add-job-post">Add Job Post</a></li>
-          			{% else %}
-          				<li class="{% ancestor '/profile' %}"><a href="/profile">Profile</a></li>
-          				<li class="{% ancestor '/logout' %}"><a href="/logout">Logout</a></li>
-          			{% endif %}
+				<li class="{% ancestor '/profile' %}"><a href="/profile">Profile</a></li>
+				<li class="{% ancestor '/logout' %}"><a href="/logout">Logout</a></li>
           	{% else %}
             	<li class="{% ancestor '/signup' %}"><a href="/signup">Sign Up</a></li>
             	<li class="{% ancestor '/signin' %}"><a href="/signin">Sign In</a></li>
