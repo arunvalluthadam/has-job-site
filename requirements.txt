@@ -37,7 +37,7 @@ django-tinymce==3.4.0
 django-toolbelt==0.0.1
 django-wunderground==1.0.1
 djangocms-admin-style==0.2.5
-djangorestframework==3.1.2
+djangorestframework==3.11.2
 gdata==2.0.18
 gunicorn==19.2.1
 haystack==0.15
