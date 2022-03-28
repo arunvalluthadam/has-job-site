@@ -55,7 +55,7 @@ python-ptrace==0.8.1
 python-social-auth==0.2.9
 python-twitter==2.2
 pytz==2014.10
-requests==2.5.1
+requests==2.20.0
 requests-oauthlib==0.4.2
 setproctitle==1.1.8
 simplejson==3.6.5
