@@ -33,7 +33,7 @@ django-registration-redux==1.1
 django-sekizai==0.8.1
 django-socialregistration==0.5.10
 django-storages==1.1.8
-django-tinymce==1.5.3
+django-tinymce==3.4.0
 django-toolbelt==0.0.1
 django-wunderground==1.0.1
 djangocms-admin-style==0.2.5
